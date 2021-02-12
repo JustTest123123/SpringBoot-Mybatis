@@ -1,6 +1,8 @@
 package com.dao;
 
 import com.example.DemoApplication;
+import com.example.entity.Student;
+import com.example.mapper.StudentMapper;
 import com.example.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,24 +15,13 @@ import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoApplication.class)
-public class UserDaoTest {
+public class StudentTest {
     @Autowired
-    private UserMapper userMapper;
+    private StudentMapper studentMapper;
     @Test
     public void testInsert() {
+        System.out.println(studentMapper.getStudents2());
+    }
 
-    }
-    @Test
-    public void testSelect() {
-        System.out.println(userMapper.Sel(1));
-    }
-    @Test
-    public void testUpdate() {
-        Map<String,String> param = new HashMap<>();
-        param.put("userName","abc");
-        param.put("id","1");
-        userMapper.update(param);
-
-    }
 
 }
