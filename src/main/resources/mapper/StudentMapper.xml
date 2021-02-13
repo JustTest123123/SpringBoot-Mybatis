@@ -7,14 +7,13 @@
         <!--关联对象property 关联对象在Student实体类中的属性-->
         <association property="teacher" javaType="Teacher">
             <result property="name" column="tname"/>
+            <result property="email" column="temail"></result>
         </association>
     </resultMap>
 
     <select id="getStudents2" resultMap="StudentTeacher2">
-  select s.id sid, s.name sname , t.name tname
+  select s.id sid, s.name sname , t.name tname ,t.email temail
   from student s,teacher t
   where s.tid = t.id
 </select>
-
-
 </mapper>
