@@ -21,9 +21,9 @@
       where s.tid = t.id and t.id=#{id}
    </select>
 
-    <resultMap id="TeacherStudent" type="Teacher">
+    <resultMap id="TeacherStudent" type="com.example.entity.Teacher">
         <result property="name" column="tname"/>
-        <collection property="students" ofType="Student">
+        <collection property="students" ofType="com.example.entity.Student">
             <result property="id" column="sid"/>
             <result property="name" column="sname"/>
             <result property="tid" column="tid"/>
