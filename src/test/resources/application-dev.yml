@@ -1,6 +1,15 @@
 server:
   port: 8080
-
+#必填参数
+ice:
+  bizeKey: xxx
+  product: test
+  host: http://10.96.79.24:8008
+#可选参数
+#ice.maxPerRoute=2
+#ice.maxTotalConnection=20
+#ice.connectTimeout=1000
+#ice.socketTimeout=3000
 spring:
   datasource:
     username: root
