@@ -7,6 +7,7 @@ import com.example.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -22,6 +23,11 @@ public class StudentTest {
     public void testInsert() {
         System.out.println(studentMapper.getStudents2());
     }
-
+    @Value("${a.b}")
+    private String a;
+    @Test
+    public void test() {
+        System.out.println(a);
+    }
 
 }

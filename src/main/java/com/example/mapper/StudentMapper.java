@@ -11,4 +11,6 @@ import java.util.List;
 public interface StudentMapper {
 
     List<Student> getStudents2();
+
+    Student getById(Integer id);
 }

@@ -18,3 +18,5 @@ logging:
     com:
       example:
         mapper : debug
+a:
+  b: 2

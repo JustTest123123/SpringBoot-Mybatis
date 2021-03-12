@@ -22,6 +22,11 @@ public class TeacherTest {
     private TeacherMapper teacherMapper;
 
     @Test
+    public void testqueryAll() {
+        System.out.println(teacherMapper.getAllTeacher());
+    }
+
+    @Test
     public void testGetById() {
         System.out.println(teacherMapper.getById(1));
         System.out.println(teacherMapper.getById(2));

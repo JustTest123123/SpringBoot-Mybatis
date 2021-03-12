@@ -2,6 +2,7 @@ package mybatissourcetest.cachetest;
 
 import com.example.DemoApplication;
 import com.example.entity.User;
+import com.example.mapper.StudentMapper;
 import com.example.mapper.UserMapper;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
@@ -51,6 +52,8 @@ public class SecondCacheTest {
 //m命中条件1：必须提交
 //    针对注解和xml不能同时使用cache，需要使用ref ：详细见 https://blog.csdn.net/lovely960823/article/details/111277801?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&dist_request_id=d610018e-be92-4d67-bb4d-93826d28b8c2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control
 //    在xml或者是接口中指明cache然后另一个地方指明ref 这里就是xml中ref，在接口中指明cache
+    @Autowired
+    private StudentMapper studentMapper;
     @Test
     public void commit() {
         SqlSession session = sqlSessionFactory.openSession();

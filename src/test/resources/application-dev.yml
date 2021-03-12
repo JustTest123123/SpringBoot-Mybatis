@@ -20,10 +20,15 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.example.entity
-
+#测试中，读取的是测试路径下的配置文件,但是如果和伴随着spring起来，那么
+#就相当于环境是从spring起来，但是mybatis配置文件还是读取的是配置
+#如果测试的mapper中有一个xx.xml那么就会报错,读取的配置文件，优先是test环境下的
+#xml如果都有test，否则谁有读谁
 #showSql
 logging:
   level:
     com:
       example:
         mapper : debug
+a:
+  b: 1
