@@ -26,6 +26,18 @@
       from student s,teacher t
       where s.tid = t.id
     </select>
+    <select id="getAllTeacherWithLazy" resultMap="getTeacher">
+        select * from teacher
+    </select>
+    <resultMap id="getTeacher" type="com.example.entity.Teacher">
+        <result property="name" column="tname"/>
+        <result property="email" column="email"/>
+        <result property="id" column="id"/>
+    </resultMap>
+
+    <select id="findStudentById" parameterType="int" resultType="com.example.entity.Student">
+        select * from student where id = #{id}
+    </select>
 
     <resultMap id="TeacherStudent" type="com.example.entity.Teacher">
         <result property="name" column="tname"/>
