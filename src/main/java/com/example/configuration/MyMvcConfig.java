@@ -1,6 +1,7 @@
 package com.example.configuration;
 
 import com.example.interceptor.InteceptorNoLogin;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -12,10 +13,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 public class MyMvcConfig implements WebMvcConfigurer {
-
+//    采用注入的方式注入拦截器，这样拦截器就可以用spring上下文的相关资源
+    @Autowired
+    private InteceptorNoLogin inteceptorNoLogin;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new InteceptorNoLogin()).addPathPatterns("/**");
+        registry.addInterceptor(inteceptorNoLogin).addPathPatterns("/**");
     }
 }
     

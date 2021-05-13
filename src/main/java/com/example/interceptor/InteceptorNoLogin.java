@@ -1,6 +1,8 @@
 package com.example.interceptor;
 
+import com.example.configuration.A;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -18,9 +20,15 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 @Component
 public class InteceptorNoLogin implements HandlerInterceptor {
+//    缺点是只能对controller请求进行拦截，对其他的一些比如直接访问静态资源的请求则没办法进行拦截处理。
+
+//    这里会报错，因为拦截器会在springcontext前加载 ,因此加入拦截器之前使用注入的方式加入，就不会报错
+    @Autowired
+    private A a;
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info("test");
         System.out.println("前置拦截器");
+        System.out.println(a.getB());
         return true;
     }
     @PostConstruct
