@@ -1,0 +1,2 @@
+INSERT INTO `tiny_id_info`(`id`, `biz_type`, `begin_id`, `max_id`, `step`, `delta`, `remainder`, `create_time`, `update_time`, `version`) VALUES (1, 'test', 1, 1100001, 100000, 1, 0, '2018-07-21 23:52:58', '2021-06-25 07:17:00', 12);
+INSERT INTO `tiny_id_info`(`id`, `biz_type`, `begin_id`, `max_id`, `step`, `delta`, `remainder`, `create_time`, `update_time`, `version`) VALUES (2, 'test_odd', 1, 1, 100000, 2, 1, '2018-07-21 23:52:58', '2018-07-23 00:39:24', 3);
