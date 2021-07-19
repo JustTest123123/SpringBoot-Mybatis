@@ -1,5 +1,11 @@
 package com.example.com.example.plugin;
 
+/**
+ * @author wenbaox
+ * @version 1.0
+ * @date 2021/7/19 下午4:37
+ */
+
 import org.apache.ibatis.executor.resultset.ResultSetHandler;
 import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.MetaObject;
@@ -19,13 +25,13 @@ import java.util.Properties;
 @Intercepts(@Signature(type = ResultSetHandler.class, method = "handleResultSets", args = Statement.class))
 @Component
 //插件的执行按照Spring容器加载的顺序来
-@Order(10)
-public class TuominPlugin implements Interceptor {
+@Order(1)
+public class TuominPlugin2 implements Interceptor {
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         List<Object> res = (List<Object>) invocation.proceed();
-        System.out.println("TuominPlugin 0");
+        System.out.println("TuominPlugin 1");
         res.forEach(this::tuomin);
         return res;
     }
@@ -60,4 +66,5 @@ public class TuominPlugin implements Interceptor {
 
     }
 }
+
     
